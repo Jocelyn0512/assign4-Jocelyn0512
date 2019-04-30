@@ -3,7 +3,7 @@ PImage groundhogIdle, groundhogLeft, groundhogRight, groundhogDown;
 PImage bg, life, cabbage, stone1, stone2, soilEmpty;
 PImage soldier;
 PImage soil0, soil1, soil2, soil3, soil4, soil5;
-PImage[][] soils, stones;
+PImage[][] soils, stones; 
 
 final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
 int gameState = 0;
