@@ -22,7 +22,7 @@ final int START_BUTTON_Y = 360;
 
 int[] cabbageX, cabbageY, soldierX, soldierY;
 float soldierSpeed = 2f;
-
+ 
 float playerX, playerY;
 int playerCol, playerRow;
 final float PLAYER_INIT_X = 4 * SOIL_SIZE;
