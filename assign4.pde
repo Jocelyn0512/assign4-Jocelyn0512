@@ -384,7 +384,13 @@ void draw() {
 			// Check if "player is NOT at the bottom AND the soil under the player is empty"
 			// > If so, then force moving down by setting playerMoveDirection and playerMoveTimer (see downState part below for example)
 			// > Else then determine player's action based on input state
-
+      if(soilHealth[playerCol][playerRow+1]<=0)
+      {
+        playerMoveDirection = DOWN;
+        playerMoveTimer = playerMoveDuration;
+      }
+      else
+      {
       
 
 			if(leftState){
@@ -447,6 +453,7 @@ void draw() {
 			}
 
 		}
+    }
 
 		// If player is now moving?
 		// (Separated if-else so player can actually move as soon as an action starts)
