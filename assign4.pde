@@ -330,15 +330,37 @@ void draw() {
 		rect(0, -GRASS_HEIGHT, width, GRASS_HEIGHT);
 
 		// Soil
-
+    
 		for(int i = 0; i < soilHealth.length; i++){
 			for (int j = 0; j < soilHealth[i].length; j++) {
 
 				// Change this part to show soil and stone images based on soilHealth value
 				// NOTE: To avoid errors on webpage, you can either use floor(j / 4) or (int)(j / 4) to make sure it's an integer.
 				int areaIndex = floor(j / 4);
-				image(soils[areaIndex][4], i * SOIL_SIZE, j * SOIL_SIZE);
-				
+				if(soilHealth[i][j]>=13 || soilHealth[i][j]<=45)
+        {
+          image(soils[areaIndex][4], i * SOIL_SIZE, j * SOIL_SIZE);
+				}
+/*
+        if(soilHealth[i][j]>=10 || soilHealth[i][j]<=12)
+        {
+          image(soils[areaIndex][3], i * SOIL_SIZE, j * SOIL_SIZE);
+        }
+        
+        if(soilHealth[i][j]>=7 || soilHealth[i][j]<=9)
+        {
+          image(soils[areaIndex][2], i * SOIL_SIZE, j * SOIL_SIZE);
+        }
+        
+        if(soilHealth[i][j]>=4 || soilHealth[i][j]<=6)
+        {
+          image(soils[areaIndex][1], i * SOIL_SIZE, j * SOIL_SIZE);
+        }
+        
+        if(soilHealth[i][j]>=1 || soilHealth[i][j]<=3)
+        {
+          image(soils[areaIndex][0], i * SOIL_SIZE, j * SOIL_SIZE);
+        }*/
 			}
 		}
 
@@ -404,10 +426,15 @@ void draw() {
 					// Check if "player is NOT above the ground AND there's soil on the left"
 					// > If so, dig it and decrease its health
 					// > Else then start moving (set playerMoveDirection and playerMoveTimer)
-
-					playerMoveDirection = LEFT;
-					playerMoveTimer = playerMoveDuration;
-
+          if(soilHealth[playerCol-1][playerRow]>0)
+          {
+            soilHealth[playerCol-1][playerRow]--;
+          }
+          else
+          {
+  					playerMoveDirection = LEFT;
+  					playerMoveTimer = playerMoveDuration;
+          }
 				}
 
 			}else if(rightState){
@@ -421,10 +448,15 @@ void draw() {
 					// Check if "player is NOT above the ground AND there's soil on the right"
 					// > If so, dig it and decrease its health
 					// > Else then start moving (set playerMoveDirection and playerMoveTimer)
-
-					playerMoveDirection = RIGHT;
-					playerMoveTimer = playerMoveDuration;
-
+          if(soilHealth[playerCol+1][playerRow]>0)
+          {
+            soilHealth[playerCol+1][playerRow]--;
+          }
+          else
+          {
+  					playerMoveDirection = RIGHT;
+  					playerMoveTimer = playerMoveDuration;
+          }
 				}
 
 			}else if(downState){
@@ -444,10 +476,15 @@ void draw() {
 					// For requirement #3:
 					// Note that player never needs to move down as it will always fall automatically,
 					// so the following 2 lines can be removed once you finish requirement #3
-
-					playerMoveDirection = DOWN;
-					playerMoveTimer = playerMoveDuration;
-
+          if(soilHealth[playerCol][playerRow+1]>0)
+          {
+            soilHealth[playerCol][playerRow+1]--;
+          }
+          else
+          {
+  					playerMoveDirection = DOWN;
+  					playerMoveTimer = playerMoveDuration;
+          }
 
 				}
 			}
