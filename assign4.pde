@@ -8,7 +8,7 @@ PImage[][] soils, stones;
 final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
 int gameState = 0;
 
-final int GRASS_HEIGHT = 15; 
+final int GRASS_HEIGHT = 15;
 final int SOIL_COL_COUNT = 8;
 final int SOIL_ROW_COUNT = 24;
 final int SOIL_SIZE = 80;
@@ -349,7 +349,7 @@ void draw() {
         if(soilHealth[i][j]>=4 && soilHealth[i][j]<=6)
           image(soils[areaIndex][1], i * SOIL_SIZE, j * SOIL_SIZE);
         
-        if(soilHealth[i][j]>=1 && soilHealth[i][j]<=3)
+        if(soilHealth[i][j]>=0 && soilHealth[i][j]<=3)
           image(soils[areaIndex][0], i * SOIL_SIZE, j * SOIL_SIZE);
           
         int areaIndex2 = 0;  
