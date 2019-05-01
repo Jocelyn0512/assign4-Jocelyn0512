@@ -8,7 +8,7 @@ PImage[][] soils, stones;
 final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
 int gameState = 0;
 
-final int GRASS_HEIGHT = 15;
+final int GRASS_HEIGHT = 15; 
 final int SOIL_COL_COUNT = 8;
 final int SOIL_ROW_COUNT = 24;
 final int SOIL_SIZE = 80;
