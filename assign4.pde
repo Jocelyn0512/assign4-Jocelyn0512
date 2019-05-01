@@ -337,30 +337,52 @@ void draw() {
 				// Change this part to show soil and stone images based on soilHealth value
 				// NOTE: To avoid errors on webpage, you can either use floor(j / 4) or (int)(j / 4) to make sure it's an integer.
 				int areaIndex = floor(j / 4);
-				if(soilHealth[i][j]>=13 || soilHealth[i][j]<=45)
-        {
+				if(soilHealth[i][j]>=13 && soilHealth[i][j]<=45)
           image(soils[areaIndex][4], i * SOIL_SIZE, j * SOIL_SIZE);
-				}
-/*
-        if(soilHealth[i][j]>=10 || soilHealth[i][j]<=12)
-        {
+
+        if(soilHealth[i][j]>=10 && soilHealth[i][j]<=12)
           image(soils[areaIndex][3], i * SOIL_SIZE, j * SOIL_SIZE);
-        }
         
-        if(soilHealth[i][j]>=7 || soilHealth[i][j]<=9)
-        {
+        if(soilHealth[i][j]>=7 && soilHealth[i][j]<=9)
           image(soils[areaIndex][2], i * SOIL_SIZE, j * SOIL_SIZE);
-        }
         
-        if(soilHealth[i][j]>=4 || soilHealth[i][j]<=6)
-        {
+        if(soilHealth[i][j]>=4 && soilHealth[i][j]<=6)
           image(soils[areaIndex][1], i * SOIL_SIZE, j * SOIL_SIZE);
-        }
         
-        if(soilHealth[i][j]>=1 || soilHealth[i][j]<=3)
-        {
+        if(soilHealth[i][j]>=1 && soilHealth[i][j]<=3)
           image(soils[areaIndex][0], i * SOIL_SIZE, j * SOIL_SIZE);
-        }*/
+          
+        int areaIndex2 = 0;  
+        if(soilHealth[i][j]>=28 && soilHealth[i][j]<=45)
+          image(stones[areaIndex2][4], i * SOIL_SIZE, j * SOIL_SIZE);
+
+        if(soilHealth[i][j]>=25 && soilHealth[i][j]<=27)
+          image(stones[areaIndex2][3], i * SOIL_SIZE, j * SOIL_SIZE);
+        
+        if(soilHealth[i][j]>=22 && soilHealth[i][j]<=24)
+          image(stones[areaIndex2][2], i * SOIL_SIZE, j * SOIL_SIZE);
+        
+        if(soilHealth[i][j]>=19 && soilHealth[i][j]<=21)
+          image(stones[areaIndex2][1], i * SOIL_SIZE, j * SOIL_SIZE);
+        
+        if(soilHealth[i][j]>=16 && soilHealth[i][j]<=18)
+          image(stones[areaIndex2][0], i * SOIL_SIZE, j * SOIL_SIZE);
+          
+        int areaIndex3 = 1;  
+        if(soilHealth[i][j]>=43 && soilHealth[i][j]<=45)
+          image(stones[areaIndex3][4], i * SOIL_SIZE, j * SOIL_SIZE);
+
+        if(soilHealth[i][j]>=40 && soilHealth[i][j]<=42)
+          image(stones[areaIndex3][3], i * SOIL_SIZE, j * SOIL_SIZE);
+        
+        if(soilHealth[i][j]>=37 && soilHealth[i][j]<=39)
+          image(stones[areaIndex3][2], i * SOIL_SIZE, j * SOIL_SIZE);
+        
+        if(soilHealth[i][j]>=34 && soilHealth[i][j]<=36)
+          image(stones[areaIndex3][1], i * SOIL_SIZE, j * SOIL_SIZE);
+        
+        if(soilHealth[i][j]>=31 && soilHealth[i][j]<=33)
+          image(stones[areaIndex3][0], i * SOIL_SIZE, j * SOIL_SIZE);
 			}
 		}
 
@@ -426,7 +448,7 @@ void draw() {
 					// Check if "player is NOT above the ground AND there's soil on the left"
 					// > If so, dig it and decrease its health
 					// > Else then start moving (set playerMoveDirection and playerMoveTimer)
-          if(soilHealth[playerCol-1][playerRow]>0)
+          if(playerY > PLAYER_INIT_Y && soilHealth[playerCol-1][playerRow]>0)
           {
             soilHealth[playerCol-1][playerRow]--;
           }
@@ -448,7 +470,7 @@ void draw() {
 					// Check if "player is NOT above the ground AND there's soil on the right"
 					// > If so, dig it and decrease its health
 					// > Else then start moving (set playerMoveDirection and playerMoveTimer)
-          if(soilHealth[playerCol+1][playerRow]>0)
+          if(playerY > PLAYER_INIT_Y && soilHealth[playerCol+1][playerRow]>0)
           {
             soilHealth[playerCol+1][playerRow]--;
           }
