@@ -2,7 +2,7 @@ PImage title, gameover, startNormal, startHovered, restartNormal, restartHovered
 PImage groundhogIdle, groundhogLeft, groundhogRight, groundhogDown;
 PImage bg, life, cabbage, stone1, stone2, soilEmpty;
 PImage soldier;
-PImage soil0, soil1, soil2, soil3, soil4, soil5; 
+PImage soil0, soil1, soil2, soil3, soil4, soil5;
 PImage[][] soils, stones;
 
 final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
@@ -428,7 +428,7 @@ void draw() {
 			// Check if "player is NOT at the bottom AND the soil under the player is empty"
 			// > If so, then force moving down by setting playerMoveDirection and playerMoveTimer (see downState part below for example)
 			// > Else then determine player's action based on input state
-      if(soilHealth[playerCol][playerRow+1]<=0)
+      if(playerRow+1 < SOIL_ROW_COUNT && soilHealth[playerCol][playerRow+1]<=0)
       {
         playerMoveDirection = DOWN;
         playerMoveTimer = playerMoveDuration;
