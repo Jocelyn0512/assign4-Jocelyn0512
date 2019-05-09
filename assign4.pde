@@ -583,6 +583,7 @@ void draw() {
         playerRow = (int) (playerY / SOIL_SIZE);
         playerMoveTimer = 0;
         playerHealth--;
+        soilHealth[4][0] = 15;
       }
       
     }
